@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+pytest
+requests
+passlib[bcrypt]
+httpx

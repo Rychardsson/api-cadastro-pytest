@@ -221,6 +221,7 @@ class TestUsuario:
 class TestIntegracao:
     """Testes que verificam o fluxo completo da aplicação."""
 
+    @pytest.mark.integration
     def test_fluxo_completo_cadastro_login_busca(self):
         """Testa o fluxo completo: cadastro -> login -> busca."""
         # 1. Cadastro
@@ -239,6 +240,7 @@ class TestIntegracao:
         assert get_response.status_code == 200
         assert get_response.json()["username"] == user_data["username"]
 
+    @pytest.mark.integration
     def test_multiplos_usuarios_operacoes(self):
         """Testa operações com múltiplos usuários."""
         users = [
@@ -271,6 +273,7 @@ class TestIntegracao:
 class TestPerformance:
     """Testes básicos de performance."""
 
+    @pytest.mark.performance
     def test_multiplos_cadastros_sequenciais(self):
         """Testa cadastro de muitos usuários em sequência."""
         for i in range(10):
@@ -281,6 +284,7 @@ class TestPerformance:
             assert response.status_code == 201
             assert response.json()["id"] == i + 1
 
+    @pytest.mark.performance
     def test_buscas_multiplas(self):
         """Testa múltiplas buscas em sequência."""
         # Cadastra usuários primeiro

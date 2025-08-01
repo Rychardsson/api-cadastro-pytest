@@ -14,6 +14,7 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 ## ✨ **Funcionalidades Principais**
 
 ### 👤 **Gestão Completa de Usuários**
+
 - ✅ **Cadastro Avançado:** Username, email, nome completo, idade com validações
 - 🔐 **Autenticação JWT:** Login seguro com tokens de acesso temporários
 - 👥 **Listagem Paginada:** Busca de usuários com limite e offset
@@ -22,6 +23,7 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 - 👨‍💼 **Perfil Próprio:** Endpoint dedicado para dados do usuário logado
 
 ### 🔒 **Segurança Robusta**
+
 - 🛡️ **Hash Bcrypt:** Proteção avançada de senhas
 - 🎟️ **JWT Tokens:** Autenticação stateless com expiração
 - 🔑 **Controle de Acesso:** Usuários só editam próprios dados
@@ -29,6 +31,7 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 - 🚫 **Validações Rigorosas:** Prevenção de duplicatas e dados inválidos
 
 ### 📊 **Monitoramento e Logs**
+
 - 📝 **Logs Detalhados:** Registro de todas as ações dos usuários
 - 📈 **Estatísticas em Tempo Real:** Métricas da aplicação
 - 🕒 **Controle de Acesso:** Histórico de último login
@@ -36,6 +39,7 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 - 📋 **Relatórios Personalizados:** Logs filtrados por usuário
 
 ### ✅ **Validações Inteligentes**
+
 - 📧 **Email Único:** Verificação de formato e duplicatas
 - 🔤 **Username Seguro:** Validação de caracteres e tamanho
 - 🔐 **Senha Forte:** Requisitos mínimos de segurança
@@ -48,12 +52,13 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 
 ### 🔐 **Autenticação**
 
-| Método | Endpoint | Descrição | Autenticação | Request Body |
-|--------|----------|-----------|--------------|--------------|
-| `POST` | `/cadastro` | Registra novo usuário | ❌ | `UserCreate` |
-| `POST` | `/login` | Autentica e retorna JWT | ❌ | `UserLogin` |
+| Método | Endpoint    | Descrição               | Autenticação | Request Body |
+| ------ | ----------- | ----------------------- | ------------ | ------------ |
+| `POST` | `/cadastro` | Registra novo usuário   | ❌           | `UserCreate` |
+| `POST` | `/login`    | Autentica e retorna JWT | ❌           | `UserLogin`  |
 
 **Exemplo de Cadastro:**
+
 ```json
 {
   "username": "joao123",
@@ -65,6 +70,7 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 ```
 
 **Resposta de Login:**
+
 ```json
 {
   "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
@@ -75,15 +81,16 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 
 ### 👤 **Gestão de Usuários**
 
-| Método | Endpoint | Descrição | Autenticação | Parâmetros |
-|--------|----------|-----------|--------------|------------|
-| `GET` | `/me` | Perfil do usuário logado | ✅ | - |
-| `GET` | `/usuario/{id}` | Busca usuário por ID | ✅ | `id: int` |
-| `GET` | `/usuarios` | Lista usuários (paginado) | ✅ | `limite`, `offset` |
-| `PUT` | `/usuario/{id}` | Atualiza dados do usuário | ✅ | `id: int`, `UserUpdate` |
-| `DELETE` | `/usuario/{id}` | Remove usuário | ✅ | `id: int` |
+| Método   | Endpoint        | Descrição                 | Autenticação | Parâmetros              |
+| -------- | --------------- | ------------------------- | ------------ | ----------------------- |
+| `GET`    | `/me`           | Perfil do usuário logado  | ✅           | -                       |
+| `GET`    | `/usuario/{id}` | Busca usuário por ID      | ✅           | `id: int`               |
+| `GET`    | `/usuarios`     | Lista usuários (paginado) | ✅           | `limite`, `offset`      |
+| `PUT`    | `/usuario/{id}` | Atualiza dados do usuário | ✅           | `id: int`, `UserUpdate` |
+| `DELETE` | `/usuario/{id}` | Remove usuário            | ✅           | `id: int`               |
 
 **Exemplo de Atualização:**
+
 ```json
 {
   "email": "joao.novo@email.com",
@@ -94,12 +101,13 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 
 ### 📊 **Monitoramento**
 
-| Método | Endpoint | Descrição | Autenticação | Funcionalidade |
-|--------|----------|-----------|--------------|----------------|
-| `GET` | `/logs` | Histórico de ações do usuário | ✅ | Paginação com `limite` |
-| `GET` | `/stats` | Estatísticas da aplicação | ✅ | Métricas em tempo real |
+| Método | Endpoint | Descrição                     | Autenticação | Funcionalidade         |
+| ------ | -------- | ----------------------------- | ------------ | ---------------------- |
+| `GET`  | `/logs`  | Histórico de ações do usuário | ✅           | Paginação com `limite` |
+| `GET`  | `/stats` | Estatísticas da aplicação     | ✅           | Métricas em tempo real |
 
 **Resposta de Estatísticas:**
+
 ```json
 {
   "total_usuarios": 150,
@@ -114,6 +122,7 @@ API REST completa desenvolvida para demonstrar **boas práticas** em desenvolvim
 ## 🧪 **Sistema de Testes Avançado**
 
 ### 📊 **Cobertura e Qualidade**
+
 - **28+ testes** organizados por funcionalidade
 - **95%+ cobertura** do código principal
 - **Testes de segurança** para autenticação JWT
@@ -134,6 +143,7 @@ pytest -m integration   # Fluxos end-to-end
 ```
 
 ### 🔧 **Fixtures e Ferramentas**
+
 - **Usuários de teste** com diferentes perfis e permissões
 - **Tokens JWT** válidos e inválidos para testes
 - **Dados realistas** com Faker para cenários reais
@@ -194,6 +204,7 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 **URLs Importantes:**
+
 - 🌐 **API:** http://127.0.0.1:8000
 - 📖 **Swagger UI:** http://127.0.0.1:8000/docs
 - 📚 **ReDoc:** http://127.0.0.1:8000/redoc
@@ -295,30 +306,34 @@ print("Usuários:", response.json())
 ## 🛠️ **Stack Tecnológica Completa**
 
 ### 🔧 **Backend Core**
-| Tecnologia | Versão | Propósito |
-|------------|--------|-----------|
-| **Python** | 3.11+ | Linguagem principal |
-| **FastAPI** | 0.104+ | Framework web moderno |
-| **Uvicorn** | 0.24+ | Servidor ASGI high-performance |
-| **Pydantic** | 2.5+ | Validação de dados com tipos |
+
+| Tecnologia   | Versão | Propósito                      |
+| ------------ | ------ | ------------------------------ |
+| **Python**   | 3.11+  | Linguagem principal            |
+| **FastAPI**  | 0.104+ | Framework web moderno          |
+| **Uvicorn**  | 0.24+  | Servidor ASGI high-performance |
+| **Pydantic** | 2.5+   | Validação de dados com tipos   |
 
 ### 🔒 **Segurança**
-| Tecnologia | Versão | Propósito |
-|------------|--------|-----------|
-| **Passlib** | 1.7+ | Hash de senhas |
-| **Bcrypt** | - | Algoritmo de hash seguro |
-| **Python-JOSE** | 3.3+ | Implementação JWT |
-| **CORS Middleware** | - | Controle de acesso |
+
+| Tecnologia          | Versão | Propósito                |
+| ------------------- | ------ | ------------------------ |
+| **Passlib**         | 1.7+   | Hash de senhas           |
+| **Bcrypt**          | -      | Algoritmo de hash seguro |
+| **Python-JOSE**     | 3.3+   | Implementação JWT        |
+| **CORS Middleware** | -      | Controle de acesso       |
 
 ### 🧪 **Testes e Qualidade**
-| Tecnologia | Versão | Propósito |
-|------------|--------|-----------|
-| **Pytest** | 7.4+ | Framework de testes |
-| **Pytest-cov** | 4.1+ | Cobertura de código |
-| **Pytest-asyncio** | 0.21+ | Testes assíncronos |
-| **HTTPX** | 0.25+ | Cliente HTTP para testes |
+
+| Tecnologia         | Versão | Propósito                |
+| ------------------ | ------ | ------------------------ |
+| **Pytest**         | 7.4+   | Framework de testes      |
+| **Pytest-cov**     | 4.1+   | Cobertura de código      |
+| **Pytest-asyncio** | 0.21+  | Testes assíncronos       |
+| **HTTPX**          | 0.25+  | Cliente HTTP para testes |
 
 ### 🚀 **DevOps e Deploy**
+
 - **Docker** - Containerização
 - **GitHub Actions** - CI/CD pipeline
 - **Pre-commit** - Hooks de qualidade
@@ -354,6 +369,7 @@ api_cadastro_pytest/
 ## 🤝 **Como Contribuir**
 
 ### 1. **Preparar Ambiente**
+
 ```bash
 # Fork e clone
 git clone https://github.com/SEU_USERNAME/api-cadastro-pytest.git
@@ -365,6 +381,7 @@ pip install -e .
 ```
 
 ### 2. **Desenvolvimento**
+
 ```bash
 # Criar branch
 git checkout -b feature/nova-funcionalidade
@@ -375,6 +392,7 @@ pre-commit install
 ```
 
 ### 3. **Qualidade do Código**
+
 ```bash
 # Executar todos os testes
 python run_tests.py --coverage
@@ -387,6 +405,7 @@ black . --check
 ```
 
 ### 4. **Pull Request**
+
 - ✅ Todos os testes passando
 - ✅ Cobertura > 95%
 - ✅ Documentação atualizada
@@ -397,17 +416,19 @@ black . --check
 ## 📊 **Métricas e Performance**
 
 ### ⚡ **Performance da API**
-| Endpoint | Tempo Médio | RPS* | Complexidade |
-|----------|-------------|------|--------------|
-| `POST /cadastro` | ~15ms | 80 | O(n) |
-| `POST /login` | ~20ms | 60 | O(n) |
-| `GET /usuario/{id}` | ~5ms | 200 | O(1) |
-| `GET /usuarios` | ~10ms | 100 | O(n) |
-| `PUT /usuario/{id}` | ~12ms | 85 | O(n) |
 
-*Requests per second em ambiente local
+| Endpoint            | Tempo Médio | RPS\* | Complexidade |
+| ------------------- | ----------- | ----- | ------------ |
+| `POST /cadastro`    | ~15ms       | 80    | O(n)         |
+| `POST /login`       | ~20ms       | 60    | O(n)         |
+| `GET /usuario/{id}` | ~5ms        | 200   | O(1)         |
+| `GET /usuarios`     | ~10ms       | 100   | O(n)         |
+| `PUT /usuario/{id}` | ~12ms       | 85    | O(n)         |
+
+\*Requests per second em ambiente local
 
 ### 🧪 **Métricas de Teste**
+
 - **Tempo de Execução:** ~5-8 segundos para toda a suíte
 - **28+ testes** executados automaticamente
 - **95%+ cobertura** do código principal
@@ -420,15 +441,18 @@ black . --check
 ### ❌ **Problemas Comuns**
 
 **Erro: "ModuleNotFoundError: No module named 'jwt'"**
+
 ```bash
 pip install python-jose[cryptography]
 ```
 
 **Erro: "Token inválido"**
+
 - Verificar se token não expirou (30 min)
 - Usar header: `Authorization: Bearer SEU_TOKEN`
 
 **Testes falhando**
+
 ```bash
 # Limpar cache
 pytest --cache-clear
@@ -438,7 +462,9 @@ pip install -r requirements.txt --force-reinstall
 ```
 
 ### 🐛 **Relatando Issues**
+
 Encontrou um problema? [Abra uma issue](https://github.com/Rychardsson/api-cadastro-pytest/issues) com:
+
 - 🔍 Descrição detalhada
 - 📋 Passos para reproduzir
 - 💻 Ambiente (OS, Python, versões)

@@ -5,13 +5,15 @@ omit =
     __pycache__/*
     .venv/*
     .pytest_cache/*
+    venv/*
+    env/*
 
 [report]
 exclude_lines =
     pragma: no cover
     def __repr__
-    if self.debug:
-    if settings.DEBUG
+    if self\.debug:
+    if settings\.DEBUG
     raise AssertionError
     raise NotImplementedError
     if 0:
@@ -21,3 +23,7 @@ exclude_lines =
 
 [html]
 directory = htmlcov
+
+[term]
+missing = true
+show_missing = true

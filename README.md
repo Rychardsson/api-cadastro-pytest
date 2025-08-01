@@ -12,7 +12,7 @@ Este projeto é uma API REST simples, desenvolvida como um exercício prático p
 - 🔐 **Autenticação de Usuários:** Endpoint de login que valida as credenciais.
 - 👤 **Busca de Usuário:** Endpoint para consultar os dados de um usuário pelo seu ID.
 - 🛡️ **Segurança de Senhas:** As senhas são armazenadas de forma segura usando hashing com Bcrypt.
-- 🧪 **Testes Automatizados:** Cobertura de testes para todas as funcionalidades, garantindo a estabilidade do código.
+- 🧪 **Testes Automatizados:** Cobertura completa de testes com diferentes categorias e fixtures reutilizáveis.
 - 🤖 **Integração Contínua (CI):** Um workflow com GitHub Actions roda os testes automaticamente a cada `push`, garantindo que novas alterações não quebrem o projeto.
 
 ---
@@ -30,6 +30,38 @@ Este projeto é uma API REST simples, desenvolvida como um exercício prático p
 
 ---
 
+## 🧪 Melhorias nos Testes
+
+### Organização dos Testes
+
+- **Classes de Teste:** Testes organizados em classes (`TestCadastro`, `TestLogin`, `TestUsuario`, etc.)
+- **Constantes Centralizadas:** Dados de teste e mensagens de erro em constantes reutilizáveis
+- **Fixtures Reutilizáveis:** Fixtures para usuários cadastrados e logados
+
+### Categorias de Testes
+
+- **🔧 Testes Unitários:** Testam funcionalidades individuais
+- **🔗 Testes de Integração:** Testam fluxos completos da aplicação
+- **⚡ Testes de Performance:** Testam múltiplas operações sequenciais
+- **🎯 Edge Cases:** Testam casos extremos e situações especiais
+
+### Marcadores Pytest
+
+Use marcadores para executar categorias específicas de testes:
+
+```bash
+# Apenas testes de integração
+pytest -m integration
+
+# Apenas testes de performance
+pytest -m performance
+
+# Excluir testes lentos
+pytest -m "not slow"
+```
+
+---
+
 ## ⚙️ Como Começar
 
 Siga os passos abaixo para executar o projeto em seu ambiente local.
@@ -44,8 +76,8 @@ Siga os passos abaixo para executar o projeto em seu ambiente local.
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git](https://github.com/Rychardsson/api-cadastro-pytest.git)
-    cd SEU_REPOSITORIO
+    git clone https://github.com/Rychardsson/api-cadastro-pytest.git
+    cd api-cadastro-pytest
     ```
 
 2.  **Crie e ative um ambiente virtual:**
